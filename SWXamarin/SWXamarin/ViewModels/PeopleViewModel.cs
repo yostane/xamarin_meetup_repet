@@ -15,7 +15,7 @@ namespace SWXamarin.ViewModels
         {
             get
             {
-                return _AddPageCommand ?? (_AddPageCommand = new Command(ExecuteAddPageCommand));
+                return _AddPageCommand ?? (_AddPageCommand = new Command(async () => await ExecuteAddPageCommandAsync()));
             }
         }
 
@@ -26,16 +26,29 @@ namespace SWXamarin.ViewModels
             get => _hasMorePages;
             set => SetProperty(ref _hasMorePages, value);
         }
-        void ExecuteAddPageCommand()
+
+        public bool _isLoading = false;
+        public bool IsLoading
         {
-            if (!HasMorePages)
+            get => _isLoading;
+            set => SetProperty(ref _isLoading, value);
+        }
+
+        public async Task ExecuteAddPageCommandAsync()
+        {
+            await Task.Run(() =>
             {
-                return;
-            }
-            var peopleResponse = sharpTrooperCore.GetAllPeople(nextPage);
-            nextPage = peopleResponse.nextPageNo;
-            HasMorePages = nextPage != null;
-            peopleResponse.results.ForEach(person => People.Add(person));
+                if (!HasMorePages)
+                {
+                    return;
+                }
+                IsLoading = true;
+                var peopleResponse = sharpTrooperCore.GetAllPeople(nextPage);
+                nextPage = peopleResponse.nextPageNo;
+                HasMorePages = nextPage != null;
+                peopleResponse.results.ForEach(person => People.Add(person));
+                IsLoading = false;
+            });
         }
 
         public ObservableCollection<People> People { get; set; } = new ObservableCollection<People>();
@@ -43,7 +56,6 @@ namespace SWXamarin.ViewModels
 
         public PeopleViewModel()
         {
-            ExecuteAddPageCommand();
         }
     }
 }

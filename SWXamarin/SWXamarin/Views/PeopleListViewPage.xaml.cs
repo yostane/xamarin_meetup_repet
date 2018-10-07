@@ -20,6 +20,12 @@ namespace SWXamarin.Views
             BindingContext = new PeopleViewModel();
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await (BindingContext as PeopleViewModel).ExecuteAddPageCommandAsync();
+        }
+
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
