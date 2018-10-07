@@ -7,6 +7,11 @@
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement">
            
+        
+    <ListView.Footer>
+        <Button Command="{x:Binding AddPageCommand}" Text="Ajouter une page"/>
+    </ListView.Footer>
+        
     <!--Built in Cells-->
     <ListView.ItemTemplate>
         <DataTemplate>

@@ -13,9 +13,6 @@ namespace SWXamarin.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PeopleListViewPage : ContentPage
     {
-
-
-
         public PeopleListViewPage()
         {
             InitializeComponent();
