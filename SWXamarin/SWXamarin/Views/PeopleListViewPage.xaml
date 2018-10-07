@@ -9,7 +9,7 @@
            
         
     <ListView.Footer>
-        <Button Command="{x:Binding AddPageCommand}" Text="Ajouter une page"/>
+        <Button Command="{x:Binding AddPageCommand}" Text="Ajouter une page" IsVisible="{x:Binding HasMorePages}" />
     </ListView.Footer>
         
     <!--Built in Cells-->

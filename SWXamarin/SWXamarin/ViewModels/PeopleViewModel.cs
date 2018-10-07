@@ -8,27 +8,33 @@ using System.Windows.Input;
 using Xamarin.Forms;
 namespace SWXamarin.ViewModels
 {
-    public class PeopleViewModel
+    public class PeopleViewModel : BaseViewModel
     {
-
+        private ICommand _AddPageCommand = null;
         public ICommand AddPageCommand
         {
             get
             {
-                return new Command(ExecuteAddPageCommand);
+                return _AddPageCommand ?? (_AddPageCommand = new Command(ExecuteAddPageCommand));
             }
         }
 
         string nextPage = "1";
-        bool hasMorePages => nextPage != null;
+        public bool _hasMorePages = true;
+        public bool HasMorePages
+        {
+            get => _hasMorePages;
+            set => SetProperty(ref _hasMorePages, value);
+        }
         void ExecuteAddPageCommand()
         {
-            if (!hasMorePages)
+            if (!HasMorePages)
             {
                 return;
             }
             var peopleResponse = sharpTrooperCore.GetAllPeople(nextPage);
             nextPage = peopleResponse.nextPageNo;
+            HasMorePages = nextPage != null;
             peopleResponse.results.ForEach(person => People.Add(person));
         }
 
