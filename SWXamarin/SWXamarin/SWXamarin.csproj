@@ -17,6 +17,10 @@
     <Folder Include="Helpers\" />
     <Folder Include="Helpers\SharpTrooper\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Views\PeopleListViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
