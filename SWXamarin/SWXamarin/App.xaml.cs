@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SWXamarin.Views;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SWXamarin
@@ -11,7 +12,7 @@ namespace SWXamarin
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new PeopleListViewPage();
         }
 
         protected override void OnStart()

@@ -10,3 +10,44 @@
 - Créer une view et une classe view model
 
 ## Etape 2 sur mac
+
+- Mettre ce code dans le view model
+
+```c#
+public ObservableCollection<People> People { get; set; } = new ObservableCollection<People>();
+SharpTrooperCore sharpTrooperCore = new SharpTrooperCore();
+
+public PeopleViewModel()
+{
+	sharpTrooperCore.GetAllPeople().results.ForEach(person => People.Add(person));
+}
+```
+
+- Dans la vue
+
+```c#
+public PeopleListViewPage()
+{
+	InitializeComponent();
+	BindingContext = new PeopleViewModel();
+}
+async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+{
+	if (e.Item == null)
+		return;
+    await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+}
+```
+
+- Dans le XAML
+
+```xml
+<ListView.ItemTemplate>
+	<DataTemplate>
+		<TextCell Text="{Binding name}" />
+	</DataTemplate>
+</ListView.ItemTemplate>
+````
+
+- Supprimer la vue par défaut et la changer dans App.xaml.cs
+

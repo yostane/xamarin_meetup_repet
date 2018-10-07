@@ -1,16 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SWXamarin.Views.PeopleListViewPage">
   <ListView x:Name="MyListView"
-            ItemsSource="{Binding Items}"
+            ItemsSource="{Binding People}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement">
-            
+           
     <!--Built in Cells-->
     <ListView.ItemTemplate>
         <DataTemplate>
-            <TextCell Text="{Binding .}" />
+            <TextCell Text="{Binding name}" />
         </DataTemplate>
     </ListView.ItemTemplate>
     
