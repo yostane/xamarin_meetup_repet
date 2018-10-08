@@ -12,6 +12,14 @@
                 <Label FontAttributes="Bold">Sexe: </Label>
                 <Label Text="{x:Binding Person.gender}" />
             </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontAttributes="Bold">Couleur de cheveux: </Label>
+                <Label Text="{x:Binding Person.hair_color}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontAttributes="Bold">Année de naissance: </Label>
+                <Label Text="{x:Binding Person.birth_year}" />
+            </StackLayout>
         </StackLayout>
         
     </ContentPage.Content>
