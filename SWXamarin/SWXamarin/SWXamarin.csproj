@@ -26,5 +26,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="MainPage.xaml.cs" />
+    <Compile Remove="Views\PersonDetail.xaml.cs" />
   </ItemGroup>
 </Project>
