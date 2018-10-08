@@ -19,8 +19,13 @@ namespace SWXamarin
         {
             InitializeComponent();
 
-            MainPage = new PeopleListViewPage(Locator.PeopleViewModel);
+            var peopleListViewPage = new PeopleListViewPage(Locator.PeopleViewModel);
+            var navigationPage = new NavigationPage(peopleListViewPage);
+            //Initialize the NavigationService
+            Locator.NavigationService.Initialize(navigationPage);
+            MainPage = navigationPage;
         }
+
 
         protected override void OnStart()
         {

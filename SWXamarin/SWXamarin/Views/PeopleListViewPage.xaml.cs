@@ -28,14 +28,14 @@ namespace SWXamarin.Views
             await (BindingContext as PeopleViewModel).ExecuteAddPageCommandAsync();
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
                 return;
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            App.Locator.NavigationService.NavigateTo(Locator.PersonDetailPageKey, e.Item as People);
+            var personDetailViewModel = new PersonDetailViewModel();
+            personDetailViewModel.Person = e.Item as People;
+            App.Locator.NavigationService.NavigateTo(Locator.PersonDetailPageKey, personDetailViewModel);
         }
     }
 }

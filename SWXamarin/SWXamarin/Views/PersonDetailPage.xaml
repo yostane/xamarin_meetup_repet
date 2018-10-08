@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
-                <Label FontAttributes="Bold">Nom</Label>
+                <Label FontAttributes="Bold">Nom: </Label>
                 <Label Text="{x:Binding Person.name}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
