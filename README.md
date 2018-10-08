@@ -43,12 +43,13 @@ async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
 
 ```xml
 <ListView.ItemTemplate>
-	<DataTemplate>
-		<TextCell Text="{Binding name}" />
-	</DataTemplate>
+    <DataTemplate>
+        <TextCell Text="{Binding name}" />
+    </DataTemplate>
 </ListView.ItemTemplate>
-````
+```
 
 - Supprimer la vue par défaut et la changer dans App.xaml.cs
 - Ajouter la pagination commit bouton pagination "2d92d0ac37c15b26fd9bac8d750dc9d2b064aa05"
-- Ajotuer binding sur le bouton pagination pour le masquer 8b0b74814fa92fc7af08d50416240dc727909ba5
+- Ajouter binding sur le bouton pagination pour le masquer 8b0b74814fa92fc7af08d50416240dc727909ba5
+- Ajouter le paquet nuget: mvvmlight.xamarinforms

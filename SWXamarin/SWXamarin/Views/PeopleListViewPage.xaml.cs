@@ -13,11 +13,11 @@ namespace SWXamarin.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PeopleListViewPage : ContentPage
     {
-        public PeopleListViewPage()
+        public PeopleListViewPage(PeopleViewModel viewModel)
         {
             InitializeComponent();
 
-            BindingContext = new PeopleViewModel();
+            BindingContext = viewModel;
         }
 
         protected override async void OnAppearing()
