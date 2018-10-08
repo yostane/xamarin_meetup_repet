@@ -6,6 +6,7 @@ using SharpTrooper.Core;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using SWXamarin.Helpers;
 namespace SWXamarin.ViewModels
 {
     public class PeopleViewModel : BaseViewModel
@@ -18,6 +19,8 @@ namespace SWXamarin.ViewModels
                 return _AddPageCommand ?? (_AddPageCommand = new Command(async () => await ExecuteAddPageCommandAsync()));
             }
         }
+
+        public ICommand SelectItemCommand { get; private set; }
 
         string nextPage = "1";
         public bool _hasMorePages = true;
@@ -56,6 +59,14 @@ namespace SWXamarin.ViewModels
 
         public PeopleViewModel()
         {
+            SelectItemCommand = new Command<People>(ExecuteSelectItemCommand);
+        }
+
+        public void ExecuteSelectItemCommand(People person)
+        {
+            var personDetailViewModel = App.Locator.PersonDetailViewModel;
+            personDetailViewModel.Person = person;
+            App.Locator.NavigationService.NavigateTo(Locator.PersonDetailPageKey, personDetailViewModel);
         }
     }
 }

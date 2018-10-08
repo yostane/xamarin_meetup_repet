@@ -14,6 +14,7 @@ namespace SWXamarin.Helpers
         {
             //register the viewmdoels
             SimpleIoc.Default.Register<PeopleViewModel>();
+            SimpleIoc.Default.Register<PersonDetailViewModel>();
 
             //Create the navigation service
             var navigation = new NavigationService();
@@ -24,6 +25,7 @@ namespace SWXamarin.Helpers
         }
 
         public PeopleViewModel PeopleViewModel => SimpleIoc.Default.GetInstance<PeopleViewModel>();
+        public PersonDetailViewModel PersonDetailViewModel => SimpleIoc.Default.GetInstance<PersonDetailViewModel>();
         public NavigationService NavigationService => SimpleIoc.Default.GetInstance<NavigationService>();
     }
 }

@@ -27,15 +27,5 @@ namespace SWXamarin.Views
             base.OnAppearing();
             await (BindingContext as PeopleViewModel).ExecuteAddPageCommandAsync();
         }
-
-        void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            if (e.Item == null)
-                return;
-
-            var personDetailViewModel = new PersonDetailViewModel();
-            personDetailViewModel.Person = e.Item as People;
-            App.Locator.NavigationService.NavigateTo(Locator.PersonDetailPageKey, personDetailViewModel);
-        }
     }
 }

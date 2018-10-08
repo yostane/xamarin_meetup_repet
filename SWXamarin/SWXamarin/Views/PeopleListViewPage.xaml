@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:EventToCommandBehavior"
              x:Class="SWXamarin.Views.PeopleListViewPage">
    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <behaviors:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     
   <ListView x:Name="MyListView"
             ItemsSource="{Binding People}"
-            ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement">
            
         
@@ -23,6 +28,11 @@
             <TextCell Text="{Binding name}" />
         </DataTemplate>
     </ListView.ItemTemplate>
+        
+        <ListView.Behaviors>
+    <behaviors:EventToCommandBehavior EventName="ItemSelected" Command="{Binding SelectItemCommand}"
+                                  Converter="{StaticResource SelectedItemConverter}" />
+  </ListView.Behaviors>
     
     <!--Custom View Cells-->
     <!--
