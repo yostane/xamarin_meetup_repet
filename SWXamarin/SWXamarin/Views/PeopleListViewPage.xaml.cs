@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SWXamarin.ViewModels;
+using SWXamarin.Helpers;
+using SharpTrooper.Entities;
 
 namespace SWXamarin.Views
 {
@@ -32,6 +34,8 @@ namespace SWXamarin.Views
                 return;
 
             await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+
+            App.Locator.NavigationService.NavigateTo(Locator.PersonDetailPageKey, e.Item as People);
         }
     }
 }

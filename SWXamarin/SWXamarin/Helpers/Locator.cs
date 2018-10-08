@@ -7,7 +7,8 @@ namespace SWXamarin.Helpers
 {
     public class Locator
     {
-        public const string PeopleListViewPage = "PeopleListViewPage";
+        public const string PeopleListViewPageKey = "PeopleListViewPage";
+        public const string PersonDetailPageKey = "PersonDetailPage";
 
         static Locator()
         {
@@ -17,7 +18,8 @@ namespace SWXamarin.Helpers
             //Create the navigation service
             var navigation = new NavigationService();
             //Configure the pages managed by the navigation service. Each page is referenced by a key.
-            navigation.Configure(PeopleListViewPage, typeof(PeopleListViewPage));
+            navigation.Configure(PeopleListViewPageKey, typeof(PeopleListViewPage));
+            navigation.Configure(PersonDetailPageKey, typeof(PersonDetailPage));
             SimpleIoc.Default.Register(() => navigation);
         }
 
