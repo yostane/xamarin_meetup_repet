@@ -70,3 +70,7 @@ Voir commit async
 - Passer par une [commande au lieu de l'event handler](https://docs.microsoft.com/fr-fr/xamarin/xamarin-forms/app-fundamentals/behaviors/reusable/event-to-command-behavior)
   - [Téléchargement du zip et copie des dossiers Converters et Bahaviors](https://developer.xamarin.com/samples/xamarin-forms/behaviors/eventtocommandbehavior/)
 - On peut aussi passer par une librairie externe [Xamarin.Forms.BehaviorsPack](https://github.com/nuitsjp/Xamarin.Forms.BehaviorsPack).
+
+## Etape 6: EF core
+
+- Ajouter le package: Microsoft.EntityFrameworkCore.sqlite
