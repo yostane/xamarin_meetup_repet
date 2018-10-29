@@ -1,5 +1,7 @@
 # xamarin_meetup_repet
 
+- Utilisation de [star wars API](https://www.swapi.co/) via [SharpTrooper](https://github.com/olcay/SharpTrooper)]
+
 ## Etape 1 sur PC
 
 - Créer un projet Xamarin
